@@ -22,8 +22,6 @@ document.getElementById('userInput').addEventListener('submit', function(event) 
     localStorage.setItem('birthday', birthday);
     localStorage.setItem('timeofbirth', timeofbirth);
 
-    const web3 = new web3('https://127.0.0.1:5500/index1.html'); // Replace with your Algorand node URL
-
     fetch('/api/user', {
         method: 'POST',
         headers: {
@@ -41,15 +39,18 @@ document.getElementById('userInput').addEventListener('submit', function(event) 
 });
 
 
+
+
+// ALGORAND BLOCKCHAIN
+    const web3 = new web3('https://127.0.0.1:5500/index1.html'); // Replace with your Algorand node URL
+
+
+
 // Start server
 PORT = process.env.PORT || 5500;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-
-
-
 
 
 
