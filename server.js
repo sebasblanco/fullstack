@@ -7,17 +7,40 @@ const bodyParser = require('body-parser');
 const app = express();
 const client = new algosdk.Algodv2(token, server, port);
 
-(async () => {
-  console.log(await client.status().do());
-})().catch((e) => {
-  console.log(e);
+// Function to interact with the smart contract and store data
+async function storeDataOnBlockchain(name, birthplace, birthday, timeofbirth) {
+    // Replace this with your smart contract interaction code
+    // It would typically involve creating and sending a transaction to your smart contract.
+    // You'll need to format the transaction data according to your contract's requirements.
+    // For example:
+    const from = 'YOUR_ALGORAND_ADDRESS';
+    const to = 'YOUR_SMART_CONTRACT_ADDRESS';
+    const amount = 0;
+    const note = algosdk.encodeObj({ name, birthplace, birthday, timeofbirth });
+
+    const txn = algosdk.makePaymentTxnWithSuggestedParams(from, to, amount, undefined, note);
+    const signedTxn = await algosdk.signTransaction(txn, 'YOUR_ALGORAND_PRIVATE_KEY');
+    const txId = signedTxn.txID;
+
+    await algodClient.sendRawTransaction(signedTxn.blob);
+
+    console.log(`Data stored on blockchain. Transaction ID: ${txId}`);
+}
+
+// Update your event listener to call the new function
+document.getElementById('userInput').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const birthplace = document.getElementById('birthplace').value;
+    const birthday = document.getElementById('birthday').value;
+    const timeofbirth = document.getElementById('timeofbirth').value;
+
+    await storeDataOnBlockchain(name, birthplace, birthday, timeofbirth);
+
+    // You can remove the localStorage calls
 });
 
-app.use(bodyParser.json());
-
-app.get('/api/user', (req, res) => {
-  res.json({ message: 'Hello from the backend!' });
-});
 
 
 app.use(bodyParser.json());
