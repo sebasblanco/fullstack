@@ -1,9 +1,10 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
+const algosdk = require('algosdk');
 const token = 'Your algod API token';
 const server = 'http://127.0.0.1';
 const port = 5500;
+
+const bodyParser = require('body-parser');
+const app = express();
 const client = new algosdk.Algodv2(token, server, port);
 
 (async () => {
