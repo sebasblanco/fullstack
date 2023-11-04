@@ -3,8 +3,14 @@
 document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+          initialView: 'dayGridMonth',
+          initialDate: '2023-11-04',
+          headerToolbar: {
+           left: 'prev,next today',
+           center: 'title',
+           right: 'dayGridMonth,timeGridWeek,timeGridDay'
         });
+          
         calendar.render();
       });
 
