@@ -1,23 +1,12 @@
-import { Calendar } from '@fullcalendar/core'
-import interactionPlugin from '@fullcalendar/interaction'
-import dayGridPlugin from '@fullcalendar/daygrid'
-
 
 // FullCalendar
-const calendarEl = document.getElementById('calendar')
-const calendar = new Calendar(calendarEl, {
-  plugins: [
-    interactionPlugin,
-    dayGridPlugin
-  ],
-  initialView: 'timeGridWeek',
-  editable: true,
-  events: [
-    { title: 'Meeting', start: new Date() }
-  ]
-})
-
-calendar.render()
+document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
 
 
 // Phases of the Moon API
@@ -25,15 +14,6 @@ calendar.render()
 // Swiss Ephemeris - Node.js
 
 // User Registration - Node.js
-
-// Natal - Swiss ''
-
-// Front-end framework - React, Vue.js, Three.js
-
-
-
-
-// USER REGISTRATION
 function inputUser() {
     var name = document.getElementById("name").value;
     var birthplace = document.getElementById("birthplace").value;
@@ -73,10 +53,18 @@ document.getElementById('userInput').addEventListener('submit', function(event) 
     });
 });
 
+// Natal - Swiss ''
+
+// Front-end framework - React, Vue.js, Three.js
 
 
 
-// ALGORAND BLOCKCHAIN
+
+
+
+
+
+// Back-end - ALGORAND BLOCKCHAIN
     const web3 = new web3('https://127.0.0.1:5500/index1.html'); // Replace with your Algorand node URL
 
 
@@ -89,7 +77,7 @@ app.listen(PORT, () => {
 
 
 
-// OPENAI
+// Machine Learning - OPENAI
 document.getElementById('generateText').addEventListener('click', function() {
     const apiKey = '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'
     const prompt = 'Once upon a time...'; // Add your desired prompt
