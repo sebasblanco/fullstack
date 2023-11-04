@@ -1,3 +1,38 @@
+import { Calendar } from '@fullcalendar/core'
+import interactionPlugin from '@fullcalendar/interaction'
+import dayGridPlugin from '@fullcalendar/daygrid'
+
+
+// FullCalendar
+const calendarEl = document.getElementById('calendar')
+const calendar = new Calendar(calendarEl, {
+  plugins: [
+    interactionPlugin,
+    dayGridPlugin
+  ],
+  initialView: 'timeGridWeek',
+  editable: true,
+  events: [
+    { title: 'Meeting', start: new Date() }
+  ]
+})
+
+calendar.render()
+
+
+// Phases of the Moon API
+
+// Swiss Ephemeris - Node.js
+
+// User Registration - Node.js
+
+// Natal - Swiss ''
+
+// Front-end framework - React, Vue.js, Three.js
+
+
+
+
 // USER REGISTRATION
 function inputUser() {
     var name = document.getElementById("name").value;
